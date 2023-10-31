@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="~{layout/common::head('home')}">
+<head th:replace="~{layout/common::head('Home')}">
 
 </head>
 <body>
@@ -8,8 +8,50 @@
 <div class="container">
     <div th:replace="~{layout/common::list('home')}">
     </div>
-    <div class="col-9 col-sm-6">본문</div>
+    <div class="col-9 col-sm-6">
+        <div class="container d-flex justify-content-center">
+            <h1>빅데이터 분석 및 데이터 시각화</h1>
+        </div>
+
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col-12 d-flex justify-content-center">
+                    <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active " onclick="window.location.href='menu/menu1';">
+                                <h2>일정기간 품목시세변동</h2>
+                                <p>일정기간동안 품목들의 시세 변화량</p>
+                                <a class=""></a>
+                            </div>
+                            <div class="carousel-item" onclick="window.location.href='menu/menu2';">
+                                <h2>연간 시세</h2>
+                                <p>5년간 시세 변화량</p>
+                            </div>
+                            <div class="carousel-item"  onclick="window.location.href='menu/menu3';">
+                                <h2>계절 시세</h2>
+                                <p>한 품목의 계절별 시세 변화</p>
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
+                                data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying"
+                                data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
 
 </div>
+
 </body>
 </html>
