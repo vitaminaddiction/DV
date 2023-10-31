@@ -9,29 +9,27 @@ matplotlib.rcParams['font.size'] = 15  # 글자 크기
 matplotlib.rcParams['axes.unicode_minus'] = False  # 한글 폰트 사용 시, 마이너스 글자가 깨지는 현상을 해결
 
 
-data = pd.read_excel('sample2.xlsx')
-np_data = np.load('sample2.xlsx')
+data = pd.read_excel('sample.xlsx')
+np_data = np.load('sample.xlsx')
 
 # '시점' 열을 datetime 형식으로 변환
-# data['시점'] = pd.to_datetime(data['시점'], format='%Y.%m/%d')
+data['시점'] = pd.to_datetime(data['시점'], format='%Y.%m/%d')
 # 2014.1/4 가 2014.1.4 로 표기됨.. 수정 필요
 data = data.replace('-', None)
 # '-' 값 null화
 
 
 def dv01():
-    # 막대그래프, 특정 기간 A->B n% 상승, 하락
-    # a = input('A년부터 B년까지 C품목 : A,B,C 형식으로 입력해주세요')
-    # b = a.split(',')
-    # first_year = int(b[0])
-    # last_year = int(b[1])
-    # target = str(b[2])
-
-    data['시점'] = ['2022.11','2023.09']
-
+    # 규칙이 딱히 없는 샘플, 선그래프
     plt.figure(figsize=(10,8))
 
-    plt.bar(data['시점'],data['사과'],label='사과')
+    plt.plot(data['시점'],data['총지수'],label='총지수')
+    plt.plot(data['시점'],data['쌀'],label='쌀')
+    plt.plot(data['시점'],data['국수'],label='국수')
+    plt.plot(data['시점'],data['라면'],label='라면')
+    plt.plot(data['시점'],data['빵'],label='빵')
+    plt.plot(data['시점'],data['사과'],label='사과')
+    plt.plot(data['시점'],data['포도'],label='포도')
 
     plt.xlabel('시점')
     plt.ylabel('백분율(%)',rotation=90)
@@ -44,7 +42,7 @@ def dv01():
 
 
 def dv02():
-    # 기간 고정(ex:5년, 연도로 끊음), 해놓고 선택한 해당 상품만 출력, 점그래프
+    # 전반적으로 상승하고 있는 샘플, 점연결그래프
 
     x = np.data(['시점'])
     y = np.data(['총지수'])
@@ -68,24 +66,8 @@ def dv02():
     # plt.savefig('a.png')
     plt.show()
 
-def dv03():
-    # 해당 기간 내(1년? 분기?)에 제일 많이 오른 품목(상승률,하락률) >> 점연결그래프
-    # 결과 :: 어떤 품목이 가장 올랐다..!
-
-
-    plt.show()
-
-def dv04():
-    # 해당 년도에(계절에) 해당 카테고리가 어떻게 분포돼있나? ~~ >> 원형그래프
-    # ex : 1년치 비교 - ex : 가스 : 봄/여름/가을/겨울
-    # 년/분기별 비교 - ex : 사과 : 23봄/22봄/21봄/20봄
-
-
-    plt.show()
-
-
 dv01()
-# dv02()
-# dv03()
-# dv04()
+dv02()
+
+
 
