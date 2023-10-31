@@ -1,10 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{layout/common::head('home')}">
+
 </head>
 <body>
+<div th:replace="~{layout/common::nav('home')}"></div>
+<div class="container">
+    <div th:replace="~{layout/common::list('home')}">
+    </div>
+    <div class="col-9 col-sm-6">본문</div>
 
+</div>
 </body>
 </html>

@@ -23,4 +23,10 @@ public class MenuController {
     public String menu3(){
         return "menu/menu3";
     }
+
+    @GetMapping("menu4")
+    public String menu4(){
+        return "menu/menu4";
+    }
+
 }
