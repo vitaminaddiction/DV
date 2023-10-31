@@ -51,12 +51,12 @@ def dv02():
 
     plt.figure(figsize=(10, 8))
     plt.plot(data['시점'], data['총지수'], label='총지수')
-    # plt.plot(data['시점'], data['식품'], label='식품')
-    # plt.plot(data['시점'], data['쌀'], label='쌀')
-    # plt.plot(data['시점'], data['두부'], label='두부')
-    # plt.plot(data['시점'], data['떡'], label='떡')
-    # plt.plot(data['시점'], data['기타육류가공품'], label='기타육류가공품')
-    # plt.plot(data['시점'], data['어묵'], label='어묵')
+    plt.plot(data['시점'], data['식품'], label='식품')
+    plt.plot(data['시점'], data['쌀'], label='쌀')
+    plt.plot(data['시점'], data['두부'], label='두부')
+    plt.plot(data['시점'], data['떡'], label='떡')
+    plt.plot(data['시점'], data['기타육류가공품'], label='기타육류가공품')
+    plt.plot(data['시점'], data['어묵'], label='어묵')
 
     plt.xlabel('시점')
     plt.ylabel('백분율(%)', rotation=90)
@@ -67,7 +67,7 @@ def dv02():
     plt.show()
 
 dv01()
-dv02()
+# dv02()
 
 
 
