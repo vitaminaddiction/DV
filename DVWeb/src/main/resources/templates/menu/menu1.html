@@ -11,7 +11,8 @@
         <h1>Menu1</h1>
         <div class="container mb-3">
             <label>입력입력</label>
-            <input type="month">
+            <input type="month" id="date">
+            <button id="graph" class="btn btn-dark">그래프</button>
         </div>
         <div class="container mb-3">
             <select class="form-select" aria-label="Default select example">
@@ -28,3 +29,27 @@
 </div>
 </body>
 </html>
+<script>
+    $(document).ready(function(){
+        $("#graph").click( () => {
+            let date = $("#date").val();
+            let msg = "123";
+            let num = 1;
+
+            $.ajax( {
+                url: 'http://127.0.0.1:5000',
+                type: 'post',
+                contentType: 'application/json',
+                data: JSON.stringify( {
+                    date,
+                    msg,
+                    num
+                }),
+                success:function(res){
+                    alert(res.msg);
+                }
+            });
+        });
+    });
+
+</script>
