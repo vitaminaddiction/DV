@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{layout/common::head('Menu1')}">
+</head>
+<body>
+<div th:replace="~{layout/common::nav('menu1')}"></div>
+<div class="container">
+    <div th:replace="~{layout/common::list('menu1')}">
+    </div>
+    <div class="col-9 col-sm-6">
+        <h1>Menu1</h1>
+        <div class="container mb-3">
+            <label>입력입력</label>
+            <input type="month" id="date">
+            <button id="graph" class="btn btn-dark">그래프</button>
+        </div>
+        <div class="container mb-3">
+            <select class="form-select" aria-label="Default select example">
+                <option selected>품목 선택</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+            </select>
+        </div>
+        <img src="https://wikidocs.net/images/page/166180/6.4..png" width="800" height="400">
+        <p>설명설명설명</p>
+    </div>
+
+</div>
+</body>
+</html>
+<script>
+    $(document).ready(function(){
+        $("#graph").click( () => {
+            let date = $("#date").val();
+            let msg = "123";
+            let num = 1;
+
+            $.ajax( {
+                url: 'http://127.0.0.1:5000',
+                type: 'post',
+                contentType: 'application/json',
+                data: JSON.stringify( {
+                    date,
+                    msg,
+                    num
+                }),
+                success:function(res){
+                    alert(res.msg);
+                }
+            });
+        });
+    });
+
+</script>
