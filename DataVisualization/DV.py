@@ -51,8 +51,8 @@ def dv01():
 
     # filtered_data = data[data['시점'].isin(['2022.11', '2023.09'])]
 
-    # plt.bar(data['시점'], data['사과'], label='사과')
-    plt.scatter(data['시점'], data['사과'], label='사과')
+    plt.bar(data['시점'], data['사과'], label='사과')
+    # plt.scatter(data['시점'], data['사과'], label='사과')
 
     # plt.xlabel('시점')
     # plt.ylabel('백분율(%)', rotation=90)
