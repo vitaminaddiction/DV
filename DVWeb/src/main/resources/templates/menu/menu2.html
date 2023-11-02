@@ -1,16 +1,125 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="~{layout/common::head('Menu2')}">
-</head>
-<body>
-<div th:replace="~{layout/common::nav('menu2')}"></div>
-<div class="container">
-    <div th:replace="~{layout/common::list('menu2')}">
+<head th:replace="~{common/common::head('Menu2')}"></head>
+<body class="sb-nav-fixed">
+<nav th:replace="~{common/common::cnav('Menu2')}"></nav>
+<div id="layoutSidenav">
+    <div id="layoutSidenav_nav">
+        <nav th:replace="~{common/common::snav('Menu2')}"></nav>
     </div>
-    <div class="col-9 col-sm-6">
-        <h1>Menu2</h1>
+    <div id="layoutSidenav_content">
+        <main>
+            <div class="container-fluid px-4">
+                <h1 class="mt-4">Menu2</h1>
+                <ol class="breadcrumb mb-4">
+                    <li class="breadcrumb-item active">Menu2</li>
+                </ol>
+                <div class="row">
+                    <div class="col-xl-3 col-md-6">
+                        <div class="container mb-4">
+                            <div class="row">
+                                start month
+                                <input type="month" id="startDate">
+                            </div>
+                        </div>
+                        <!--                        <div class="card bg-primary text-white mb-4">-->
+                        <!--                            <div class="card-body">Primary Card</div>-->
+                        <!--                            <div class="card-footer d-flex align-items-center justify-content-between">-->
+                        <!--                                <a class="small text-white stretched-link" href="#">View Details</a>-->
+                        <!--                                <div class="small text-white"><i class="fas fa-angle-right"></i></div>-->
+                        <!--                            </div>-->
+                        <!--                        </div>-->
+                    </div>
+                    <div class="col-xl-3 col-md-6">
+                        <div class="container mb-4">
+                            <div class="row">
+                                end month
+                                <input type="month" id="endDate">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-md-6">
+                        <div class="container mt-3">
+                            <div class="row">
+                                <select class="form-select d-flex align-items-center"
+                                        aria-label="Default select example" id="item">
+                                    <option selected>품목 선택</option>
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                    <option value="3">Three</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-md-6">
+                        <div class="container mt-3">
+                            <div class="row d-flex align-items-center">
+                                <div class="col d-flex align-items-center justify-content-end">
+                                    <button id="graph" class="btn btn-dark ">그래프</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xl-6">
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <i class="fas fa-chart-area me-1"></i>
+                                Area Chart Example
+                            </div>
+                            <div class="card-body"><canvas id="myAreaChart" width="100%" height="40"></canvas></div>
+                        </div>
+                    </div>
+                    <div class="col-xl-6">
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <i class="fas fa-chart-bar me-1"></i>
+                                Bar Chart Example
+                            </div>
+                            <div class="card-body"><canvas id="myBarChart" width="100%" height="40"></canvas></div>
+                        </div>
+                    </div>
+                </div>
+                설명설명설명 설명설명설명 설명설명설명 설명설명설명설명설명설명 설명설명설명 설명설명설명설명설명설명설명설명설명설명설명설명 설명설명설명설명설명설명설명설명설명 설명설명설명
+                설명설명설명설명설명설명설명설명설명 설명설명설명설명설명설명설명설명설명설명설명설명 설명설명설명설명설명설명설명설명설명설명설명설명
+                <div class="card mb-4">설명설명설명</div>
+            </div>
+        </main>
+        <footer th:replace="~{common/common::cfooter('main')}"></footer>
     </div>
-
 </div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+<script src="/js/scripts.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+<script src="/assets/demo/chart-area-demo.js"></script>
+<script src="/assets/demo/chart-bar-demo.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
+<script src="/js/datatables-simple-demo.js"></script>
 </body>
 </html>
+<script>
+    $(document).ready(function(){
+        $("#graph").click( () => {
+            let startDate = $("#startDate").val();
+            let endDate = $("#endDate").val();
+            let item = $("#item");
+            let num = 1;
+
+            $.ajax( {
+                url: 'http://127.0.0.1:5000',
+                type: 'post',
+                contentType: 'application/json',
+                data: JSON.stringify( {
+                    startDate,
+                    endDate,
+                    item,
+                    num
+                }),
+                success:function(res){
+                    alert(res.msg);
+                }
+            });
+        });
+    });
+</script>
