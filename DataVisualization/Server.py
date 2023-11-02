@@ -1,7 +1,6 @@
 from flask import Flask, request, jsonify, Response
 from flask_cors import CORS
 from io import BytesIO
-import menu1
 import temp1
 
 app = Flask(__name__)
@@ -17,7 +16,7 @@ def index():
     item = str(param['item'])
     num = int(param['num'])
     num = num + 1
-    print(item,firstDate,secondDate)
+    print(item, firstDate, secondDate)
     img_base64, value1, value2 = temp1.graph(firstDate, secondDate, item)
 
     response_data = {
