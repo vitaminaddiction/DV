@@ -44,12 +44,6 @@ print(data['시점'][1])
 # print(index)
 print("테스트")
 
-my_list = [1, 2, 3, 4, 5]
-element_to_find = 3
-index = my_list.index(element_to_find)
-print(index)  # 출력: 2
-
-
 # value = data.loc[date5,""]
 # print(value)
 
