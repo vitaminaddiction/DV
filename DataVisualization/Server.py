@@ -12,7 +12,7 @@ def index():
 
     firstDate = str(param['firstDate'])
     secondDate = str(param['secondDate'])
-    msg = str(param['msg'])
+    msg = str(param['item'])
     num = int(param['num'])
     num = num + 1
     print(firstDate)
