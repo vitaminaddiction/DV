@@ -7,14 +7,14 @@ from io import BytesIO
 app = Flask(__name__)
 CORS(app)
 
-@app.route("/", methods=['POST'])
-def index():
-    param = request.get_json()
-    date1 = float(param['date1'])
-    date2 = float(param['date2'])
-    item = str(param['item'])
-    result = f"{date1} 날짜와 + {date2} 날짜의 + {item} 품목"
-    return jsonify({"msg": result})
+# @app.route("/", methods=['POST'])
+# def index():
+#     param = request.get_json()
+#     date1 = float(param['date1'])
+#     date2 = float(param['date2'])
+#     item = str(param['item'])
+#     result = f"{date1} 날짜와 + {date2} 날짜의 + {item} 품목"
+#     return jsonify({"msg": result})
 
 @app.route("/menu1/<string:date1>/<string:date2>/<string:item>")
 def menu01(date1,date2,item):

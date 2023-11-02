@@ -44,7 +44,7 @@
                                 <select class="form-select d-flex align-items-center"
                                         aria-label="Default select example" id="item">
                                     <option selected>품목 선택</option>
-                                    <option value="1">One</option>
+                                    <option value="쌀">One</option>
                                     <option value="2">Two</option>
                                     <option value="3">Three</option>
                                 </select>
@@ -121,8 +121,13 @@
                     item,
                     num
                 }),
-                success:function(res){
-                    alert(res.msg);
+                success: function(response){
+                    let imgSrc = 'data:image/png;base64,' + response.img;  // 이미지 데이터
+                    let x = response.value1;
+                    let y = response.value2;
+                      //$("#imgElement").attr("src", imgSrc);
+                    console.log("X:", x);
+                    console.log("Y:", y);
                 }
             });
         });

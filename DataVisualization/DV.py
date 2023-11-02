@@ -8,7 +8,7 @@ from flask import Flask, request, jsonify, Response
 from flask_cors import CORS
 from io import BytesIO
 
-import menu1, menu2, menu3, menu4
+import menu1
 
 matplotlib.rcParams['font.family'] = 'Malgun Gothic'  # Windows
 matplotlib.rcParams['font.size'] = 15  # 글자 크기
