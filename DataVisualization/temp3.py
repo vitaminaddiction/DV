@@ -9,17 +9,12 @@ matplotlib.rcParams['font.size'] = 15  # 글자 크기
 matplotlib.rcParams['axes.unicode_minus'] = False  # 한글 폰트 사용 시, 마이너스 글자가 깨지는 현상을 해결
 
 data = pd.read_excel('sample2.xlsx')
-data = data.replace('-', None)
-df = pd.DataFrame(data)
 
 x = data['시점']
 print(x)
 y = data['식품']
 print(y)
 
-
-# if data['시점']=='2022.12':
-#     print(data['식품'])
 
 # np_data = np.load('sample2.xlsx')
 
@@ -28,7 +23,7 @@ print(y)
 # data['시점'] = pd.to_datetime(data['시점'], format='%Y.%m')
 # 2014.1/4 가 2014.1.4 로 표기됨.. 수정 필요
 
-
+data = data.replace('-', None)
 
 
 # '-' 값 null화
@@ -49,10 +44,10 @@ def dv01():
     # data_2022_11 = data[data['시점'] == '2022.11']
     # data_2023_09 = data[data['시점'] == '2023.09']
 
-    # filtered_data = data[data['시점'].isin(['2022.11', '2023.09'])]
-
-    plt.bar(data['시점'], data['사과'], label='사과')
-    # plt.scatter(data['시점'], data['사과'], label='사과')
+    # plt.bar(data['시점'], data['사과'], label='사과')
+    plt.scatter(data['시점'], data['사과'], label='사과')
+    # plt.bar(data_2022_11['시점'], data['사과'], label='사과')
+    # plt.bar(data_2023_09['시점'], data['사과'], label='사과')
 
     # plt.xlabel('시점')
     # plt.ylabel('백분율(%)', rotation=90)
@@ -64,13 +59,10 @@ def dv01():
 
     # '시점' 열의 값이 '2022.11' 또는 '2023.09'인 행을 추출
     # filtered_data = data[data['시점'].isin(['2022.11', '2023.09'])]
-    # df[df['시점']=='2022.11'&[df['생활물가지수']]]
-
-    tar1 = df[df['시점'] == '2022.11']['사과']
-    print(tar1)
+    data['시점'] = data[data['2022.11'],data['2023.09']]
 
     # 결과 출력
-    # print(data['시점'])
+    print(data['시점'])
 
 
 def dv02():
