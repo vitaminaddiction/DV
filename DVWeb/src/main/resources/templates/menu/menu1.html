@@ -11,7 +11,8 @@
         <h1>Menu1</h1>
         <div class="container mb-3">
             <label>입력입력</label>
-            <input type="month" id="date">
+            <input type="month" id="firstDate">
+            <input type="month" id="secondDate">
             <button id="graph" class="btn btn-dark">그래프</button>
         </div>
         <div class="container mb-3">
@@ -32,7 +33,8 @@
 <script>
     $(document).ready(function(){
         $("#graph").click( () => {
-            let date = $("#date").val();
+            let firstDate = $("#firstDate").val();
+            let secondDate = $("#secondDate").val();
             let msg = "123";
             let num = 1;
 
@@ -41,7 +43,8 @@
                 type: 'post',
                 contentType: 'application/json',
                 data: JSON.stringify( {
-                    date,
+                    firstDate,
+                    secondDate,
                     msg,
                     num
                 }),
@@ -51,5 +54,4 @@
             });
         });
     });
-
 </script>

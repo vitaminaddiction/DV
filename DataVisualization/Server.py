@@ -10,11 +10,13 @@ CORS(app)
 def index():
     param = request.get_json()
 
-    date = str(param['date'])
+    firstDate = str(param['firstDate'])
+    secondDate = str(param['secondDate'])
     msg = str(param['msg'])
     num = int(param['num'])
     num = num + 1
-    print(date)
+    print(firstDate)
+    print(secondDate)
     print(msg)
     print(num)
     return jsonify({"msg": num})
