@@ -7,7 +7,6 @@ from datetime import datetime
 from flask import Flask, request, jsonify, Response
 from flask_cors import CORS
 from io import BytesIO
-
 import menu1
 
 matplotlib.rcParams['font.family'] = 'Malgun Gothic'  # Windows

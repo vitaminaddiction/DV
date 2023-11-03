@@ -7,7 +7,10 @@ from io import BytesIO
 from flask import jsonify
 
 
-def graph(firstDate, secondDate, item):
+def graph2(startDate, lastDate, item):
+    # 기간 고정(5년), 선택 품목 출력, 점선그래프
+    # 생활물가지수 상시 출력
+
 
     matplotlib.rcParams['font.family'] = 'Malgun Gothic'  # Windows
     matplotlib.rcParams['font.size'] = 15  # 글자 크기
@@ -16,15 +19,15 @@ def graph(firstDate, secondDate, item):
     data = pd.read_excel('../sml1.xlsx')
     data.set_index('시점', inplace=True)
     # date1 = "2023-04"
-    firstDate = float(firstDate.replace('-', '.'))
+    startDate = float(startDate.replace('-', '.'))
     # date2 = "2023-08"
-    secondDate = float(secondDate.replace('-', '.'))
+    lastDate = float(lastDate.replace('-', '.'))
     # item = "사과"
-    value1 = float(data.loc[firstDate, item])
-    value2 = float(data.loc[secondDate, item])
+    value1 = float(data.loc[startDate, item])
+    value2 = float(data.loc[lastDate, item])
 
     x = [1, 2]
-    date = [firstDate, secondDate]
+    date = [startDate, lastDate]
     value = [value1, value2]
 
     plt.figure(figsize=(15, 8))
