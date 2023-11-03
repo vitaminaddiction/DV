@@ -8,7 +8,7 @@ from io import BytesIO
 from flask import jsonify
 
 
-def graph(firstDate, secondDate, item):
+def graph(firstDate="2023-06", secondDate="2023-09", item="쌀"):
     matplotlib.rcParams['font.family'] = 'Malgun Gothic'  # Windows
     matplotlib.rcParams['font.size'] = 15  # 글자 크기
     matplotlib.rcParams['axes.unicode_minus'] = False  # 한글 폰트 사용 시, 마이너스 글자가 깨지는 현상을 해결
@@ -48,3 +48,5 @@ def graph(firstDate, secondDate, item):
     img_base64 = base64.b64encode(img_buffer.read()).decode()
 
     return img_base64, value1, value2
+
+

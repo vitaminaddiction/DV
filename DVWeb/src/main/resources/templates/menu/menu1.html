@@ -1,14 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="~{common/common::head('Menu1')}">
-    <style>
-        #image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover; /* 이미지 비율을 유지하면서 부모 요소에 꽉 차게 표시 */
-        }
-    </style>
-</head>
+<head th:replace="~{common/common::head('Menu1')}"></head>
 <body class="sb-nav-fixed">
 <nav th:replace="~{common/common::cnav('Menu1')}"></nav>
 <div id="layoutSidenav">
@@ -30,13 +22,6 @@
                                 <input type="month" id="firstDate">
                             </div>
                         </div>
-                        <!--                        <div class="card bg-primary text-white mb-4">-->
-                        <!--                            <div class="card-body">Primary Card</div>-->
-                        <!--                            <div class="card-footer d-flex align-items-center justify-content-between">-->
-                        <!--                                <a class="small text-white stretched-link" href="#">View Details</a>-->
-                        <!--                                <div class="small text-white"><i class="fas fa-angle-right"></i></div>-->
-                        <!--                            </div>-->
-                        <!--                        </div>-->
                     </div>
                     <div class="col-xl-3 col-md-6">
                         <div class="container mb-4">
@@ -74,26 +59,22 @@
                     <div class="col-xl-6">
                         <div class="card mb-4">
                             <div class="card-header">
-                                <i class="fas fa-chart-area me-1"></i>
-                                Area Chart Example
+                                <i class="fas fa-chart-bar me-1"></i>
+                                Bar Chart Example
                             </div>
-                            <div class="card-body">
-                                <canvas id="myAreaChart" width="100%" height="40"></canvas>
-                            </div>
+                            <div class="card-body"><canvas id="myBarChart" width="100%" height="40"></canvas></div>
                         </div>
                     </div>
                     <div class="col-xl-6">
-                        <img id="image" width="600" height="300">
-<!--                        <div class="card mb-4">-->
-<!--                            <div class="card-header">-->
-
-<!--&lt;!&ndash;                                <i class="fas fa-chart-bar me-1"></i>&ndash;&gt;-->
-<!--&lt;!&ndash;                                Bar Chart Example&ndash;&gt;-->
-<!--                            </div>-->
-<!--                            <div class="card-body">-->
-
-<!--                            </div>-->
-<!--                        </div>-->
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <i class="fas fa-chart-area me-1"></i>
+                                Matplotlib를 사용한 그래프
+                            </div>
+                            <div class="card-body">
+                                <img id="image" width="100%" height="100%" src="http://192.168.0.32:5000/menu1/default">
+                            </div>
+                        </div>
                     </div>
                 </div>
                 설명설명설명 설명설명설명 설명설명설명 설명설명설명설명설명설명 설명설명설명 설명설명설명설명설명설명설명설명설명설명설명설명 설명설명설명설명설명설명설명설명설명 설명설명설명
@@ -108,40 +89,10 @@
         crossorigin="anonymous"></script>
 <script src="/js/scripts.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
-<script src="/assets/demo/chart-area-demo.js"></script>
-<script src="/assets/demo/chart-bar-demo.js"></script>
+<script src="/assets/demo/menu1-barChart.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js"
         crossorigin="anonymous"></script>
 <script src="/js/datatables-simple-demo.js"></script>
-<script>
-    $(document).ready(function(){
-        $("#graphBtn").click( () => {
-            let firstDate = $("#firstDate").val();
-            let secondDate = $("#secondDate").val();
-            let item = $("#item").val();
-            let num = 1;
-
-            $.ajax( {
-                url: 'http://192.168.0.32:5000',
-                type: 'post',
-                contentType: 'application/json',
-                data: JSON.stringify( {
-                    firstDate,
-                    secondDate,
-                    item,
-                    num
-                }),
-                success: function(response){
-                    let imgSrc = 'data:image/png;base64,' + response.image;
-                    let x = response.value1;
-                    let y = response.value2;
-                    $("#image").attr("src", imgSrc);
-                    console.log("X:", x);
-                    console.log("Y:", y);
-                }
-            });
-        });
-    });
-</script>
+<script src="/js/menu1-ajax-handler.js"></script>
 </body>
 </html>

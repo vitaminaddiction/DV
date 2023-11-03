@@ -7,12 +7,12 @@ var ctx = document.getElementById("myBarChart");
 var myBarChart = new Chart(ctx, {
   type: 'bar',
   data: {
-    labels: ["2023.09", "2023.10"],
+    labels: ["2023.06", "2023.09"],
     datasets: [{
-      label: "Revenue",
+      label: "쌀",
       backgroundColor: "rgba(2,117,216,1)",
       borderColor: "rgba(2,117,216,1)",
-      data: [100, 130],
+      data: [94.38, 103.44],
     }],
   },
   options: {
