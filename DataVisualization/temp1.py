@@ -32,7 +32,7 @@ def graph(firstDate, secondDate, item):
     value = [value1, value2]
 
     plt.figure(figsize=(15, 8))
-    plt.bar(x, value, width=0.45)
+    plt.bar(x, value, width=0.45, color='green')
 
     plt.annotate('', xytext=(1, value1), xy=(2, value2), xycoords='data',
                  arrowprops=dict(arrowstyle='->', color='red', lw=3))
@@ -42,8 +42,7 @@ def graph(firstDate, secondDate, item):
     # 백분율 텍스트 위치 지정
     plt.text((x[0] + x[1]) / 2, ((value[0] + value[1]) / 2) * 1.1, per)
 
-    gap = max(value) - min(value)
-    y = [min(value) - 0.2 * gap, max(value) + 0.2 * gap]
+    y = [80, 150]
     plt.ylim(y)
 
     plt.xticks(x, date, rotation=45)
@@ -79,7 +78,7 @@ def graphDefault():
     value = [value1, value2]
 
     plt.figure(figsize=(15, 8))
-    plt.bar(x, value, width=0.45)
+    plt.bar(x, value, width=0.45, color='green')
 
     plt.annotate('', xytext=(1, value1), xy=(2, value2), xycoords='data',
                  arrowprops=dict(arrowstyle='->', color='red', lw=3))
@@ -89,8 +88,7 @@ def graphDefault():
     # 백분율 텍스트 위치 지정
     plt.text((x[0] + x[1]) / 2, ((value[0] + value[1]) / 2) * 1.1, per)
 
-    gap = max(value) - min(value)
-    y = [min(value) - 0.2 * gap, max(value) + 0.2 * gap]
+    y = [80, 150]
     plt.ylim(y)
 
     plt.xticks(x, date, rotation=45)

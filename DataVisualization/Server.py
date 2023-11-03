@@ -35,7 +35,7 @@ def menu1():
         item = str(param['item'])
         img_base64, value1, value2 = temp1.graph(firstDate, secondDate, item)
     else:
-        img_base64, value1, value2 = temp1.graph(())
+        img_base64, value1, value2 = temp1.graph()
 
     valList = [value1, value2]
     response_data = {
