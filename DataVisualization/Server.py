@@ -47,7 +47,7 @@ def menu1():
 
 @app.route("/menu1/default", methods=['GET'])
 def menu1Default():
-    img_base64, value1, value2, img_buffer = temp1.graph()
+    img_buffer = temp1.graphDefault()
 
     return Response(img_buffer, content_type='image/png')
 
