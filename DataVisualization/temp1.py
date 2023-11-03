@@ -4,11 +4,11 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib
 from io import BytesIO
+
 from flask import jsonify
 
 
-def graph(firstDate, secondDate, item):
-
+def graph(firstDate="2023-06", secondDate="2023-09", item="쌀"):
     matplotlib.rcParams['font.family'] = 'Malgun Gothic'  # Windows
     matplotlib.rcParams['font.size'] = 15  # 글자 크기
     matplotlib.rcParams['axes.unicode_minus'] = False  # 한글 폰트 사용 시, 마이너스 글자가 깨지는 현상을 해결
@@ -37,10 +37,6 @@ def graph(firstDate, secondDate, item):
     per = str(round((value[1] - value[0]) * 100 / value[0], 1)) + "%"
     # 백분율 텍스트 위치 지정
     plt.text((x[0] + x[1]) / 2, ((value[0] + value[1]) / 2) * 1.1, per)
-    # y축 표기 조정
-    gap = max(value) - min(value)
-    y = [min(value) - 0.2 * gap, max(value) + 0.2 * gap]
-    plt.ylim(y)
 
     plt.xticks(x, date, rotation=45)
     # plt.show()
@@ -51,5 +47,6 @@ def graph(firstDate, secondDate, item):
 
     img_base64 = base64.b64encode(img_buffer.read()).decode()
 
-
     return img_base64, value1, value2
+
+
