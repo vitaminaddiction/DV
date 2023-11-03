@@ -24,8 +24,6 @@ def menu01(date1,date2,item):
         date = [date1,date2]
         value = [value1,value2]
 
-
-
         plt.figure(figsize=(15, 8))
         plt.bar(x, value, width=0.45)
 
@@ -38,6 +36,12 @@ def menu01(date1,date2,item):
         plt.text( (x[0]+x[1])/2, ((value[0]+value[1])/2)*1.1, per)
 
         plt.xticks(x, date, rotation=45)
+
+        # y축 표기 조정
+        gap = max(value) - min(value)
+        y = [min(value) - 0.2 * gap, max(value) + 0.2 * gap]
+        plt.ylim(y)
+
         # plt.show()
 
         img_buffer = BytesIO()

@@ -33,21 +33,7 @@ def test2():
 
         date = []
 
-        # 카운트를 구하지 말고 원소를 채워넣자..
-        while equal > 0 :
-                curDate_str.split('-')
-                if curDate_str[0]==lastDate_str[0]:#년도 같을때
-                        if curDate_str[1]==lastDate_str[1]: #월 같을때, 탈출
-                                date.append(curDate_str[0] + '-' + curDate_str[1])
-                                equal = 1
-                        else: # 월 다를때
-                                date.append(curDate_str[0] + '-' + curDate_str[1])
-                                curDate_str[1] = str(int(curDate_str[1])+1)+str(0)
-                                # 월 하나 올려줌
-                else: #년도 다를때
-                        date.append(curDate_str[0] + '-' + curDate_str[1])
-                        curDate_str[1] = str(int(curDate_str[1]) + 1) + str(0)
-                        # 월 하나 올려줌
+
 
 
         # date = [startDate,lastDate]

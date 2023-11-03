@@ -38,6 +38,11 @@ def graph(firstDate="2023-06", secondDate="2023-09", item="쌀"):
     # 백분율 텍스트 위치 지정
     plt.text((x[0] + x[1]) / 2, ((value[0] + value[1]) / 2) * 1.1, per)
 
+    # y축 표기 조정
+    gap = max(value) - min(value)
+    y = [min(value) - 0.2 * gap, max(value) + 0.2 * gap]
+    plt.ylim(y)
+
     plt.xticks(x, date, rotation=45)
     # plt.show()
 
