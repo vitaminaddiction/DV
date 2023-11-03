@@ -1,10 +1,13 @@
 from flask import Flask, request, jsonify, Response
 from flask_cors import CORS
-import Chart1
+import Chart1, Chart2
+
 
 app = Flask(__name__)
 CORS(app)
 
+Chart2.graphDefault()
+# Chart2.graph("2014-04","2021-08","식품")
 
 @app.route("/", methods=['POST'])
 def index():
@@ -50,3 +53,6 @@ def menu1Default():
 
 
 app.run(debug=True, host="0.0.0.0")
+
+
+
