@@ -98,28 +98,3 @@
 <script src="/js/datatables-simple-demo.js"></script>
 </body>
 </html>
-<script>
-    $(document).ready(function(){
-        $("#graph").click( () => {
-            let startDate = $("#startDate").val();
-            let endDate = $("#endDate").val();
-            let item = $("#item");
-            let num = 1;
-
-            $.ajax( {
-                url: 'http://127.0.0.1:5000',
-                type: 'post',
-                contentType: 'application/json',
-                data: JSON.stringify( {
-                    startDate,
-                    endDate,
-                    item,
-                    num
-                }),
-                success:function(res){
-                    alert(res.msg);
-                }
-            });
-        });
-    });
-</script>
