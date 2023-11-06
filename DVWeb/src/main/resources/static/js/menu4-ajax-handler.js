@@ -16,10 +16,10 @@ $(document).ready(function(){
             success: function(response) {
                 let imgSrc = 'data:image/png;base64,' + response.image;
                 $("#image").attr("src", imgSrc);
-                myBarChart.data.datasets[0].data = response.valList;
-                myBarChart.data.labels = [firstDate, secondDate];
-                myBarChart.data.datasets[0].label = item;
-                myBarChart.update();
+                myPieChart.data.datasets[0].data = response.valList;
+                myPieChart.data.labels = [firstDate, secondDate];
+                myPieChart.data.datasets[0].label = item;
+                myPieChart.update();
             }
         });
     }

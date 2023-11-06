@@ -21,8 +21,6 @@ def graph(firstDate, secondDate, item):
     # date2 = "2023-08"
     secondDate = float(secondDate.replace('-', '.'))
 
-    print(firstDate, secondDate)
-    print(item)
 
     # item = "사과"
     value1 = float(data.loc[firstDate, item])

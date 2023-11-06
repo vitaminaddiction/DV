@@ -24,14 +24,12 @@ $(document).ready(function(){
                 myLineChart.data.datasets[1].data = response.val2List;
                 myLineChart.data.datasets[1].label = item;
                 myLineChart.update();
-                console.log(response.val2List);
-                console.log(response.val1List);
             }
         });
     }
 
 
-    $("#graph").click( () => {
+    $("#graphBtn").click( () => {
         fetchDataAndDrawChart();
     });
 

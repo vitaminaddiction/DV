@@ -53,10 +53,9 @@ def graph(startMonth, endMonth, item):
 
     # 그래프상의 x좌표 간격 설정 위해서 배열 생성(1단위 크기)
     index_count = len(data2.index)
-    print(data2.index)
     index_array = np.arange(1, index_count + 1)
-    print(index_array)
 
+    plt.figure(figsize=(15, 8))
     plt.plot(index_array, data2[standard])
     plt.plot(index_array, data2[i_tem])
     plt.xlabel("연도", labelpad=15)
@@ -128,20 +127,16 @@ def graphDefault():
     # 데이터프레임화
     data2 = data.loc[start_Month:end_Month, mylist]
     # data2 = data.loc[labels2,mylist]
-    print(data2)
 
     # 각각의 y값 배열화 - json
     standard_value = data[standard].to_list()
-    print(standard_value)
     i_tem_value = data[i_tem].to_list()
-    print(i_tem_value)
 
     # 그래프상의 x좌표 간격 설정 위해서 배열 생성(1단위 크기)
     index_count = len(data2.index)
-    print(data2.index)
     index_array = np.arange(1, index_count + 1)
-    print(index_array)
 
+    plt.figure(figsize=(15, 8))
     plt.plot(index_array, data2[standard])
     plt.plot(index_array, data2[i_tem])
     plt.xlabel("연도", labelpad=15)
