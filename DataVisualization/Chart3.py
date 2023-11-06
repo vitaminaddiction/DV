@@ -1,6 +1,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
+
 # 엑셀 파일 불러오기
 df = pd.read_excel("../sml1.xlsx")
 plt.rcParams['font.family'] = 'Malgun Gothic'

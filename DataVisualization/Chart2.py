@@ -1,14 +1,16 @@
 import base64
 
 import pandas as pd
+
 import matplotlib.pyplot as plt
-import matplotlib
 import numpy as np
 from io import BytesIO
 
 from datetime import datetime, timedelta
 from dateutil.relativedelta import relativedelta
+import matplotlib
 
+matplotlib.use('Agg')
 
 
 def graph(startMonth, endMonth, item):
@@ -39,15 +41,14 @@ def graph(startMonth, endMonth, item):
     labels2 = [label.replace('-', '.') for label in labels]
     # print(labels2)
 
-
     # 데이터프레임화
-    data2 = data.loc[start_Month:end_Month,mylist]
+    data2 = data.loc[start_Month:end_Month, mylist]
     # data2 = data.loc[labels2,mylist]
 
     # 각각의 y값 배열화 - json
-    standard_value = data[standard].to_list()
+    standard_value = data2[standard].to_list()
     value1 = standard_value
-    i_tem_value = data[i_tem].to_list()
+    i_tem_value = data2[i_tem].to_list()
     value2 = i_tem_value
 
     # 그래프상의 x좌표 간격 설정 위해서 배열 생성(1단위 크기)
@@ -56,9 +57,9 @@ def graph(startMonth, endMonth, item):
     index_array = np.arange(1, index_count + 1)
     print(index_array)
 
-    plt.plot(index_array,data2[standard])
+    plt.plot(index_array, data2[standard])
     plt.plot(index_array, data2[i_tem])
-    plt.xlabel("연도",labelpad=15)
+    plt.xlabel("연도", labelpad=15)
 
     # 그래프상에서 보여질 눈금배열과 해당 라벨의 배열
     # x_count에 각 년도의 1월을 넣어주자...(나중에)
@@ -68,20 +69,19 @@ def graph(startMonth, endMonth, item):
     # 하드코딩해서 연도.01월 들을
     # 그래프 x축 라벨로 출력할 예정
 
-
     x_count = [1,
-               index_count*1/6,
-               index_count*2/6,
-               index_count*3/6,
-               index_count*4/6,
-               index_count*5/6,
-               index_count*6/6]
+               index_count * 1 / 6,
+               index_count * 2 / 6,
+               index_count * 3 / 6,
+               index_count * 4 / 6,
+               index_count * 5 / 6,
+               index_count * 6 / 6]
 
     # 임시로 지정
-    x_labels = ["0년","1년","2년","3년","4년","5년","6년"]
+    x_labels = ["0년", "1년", "2년", "3년", "4년", "5년", "6년"]
 
-    plt.xticks(x_count,x_labels)
-    plt.ylabel("지수",rotation=0,labelpad=20)
+    plt.xticks(x_count, x_labels)
+    plt.ylabel("지수", rotation=0, labelpad=20)
     # plt.show()
 
     img_buffer = BytesIO()
@@ -91,6 +91,7 @@ def graph(startMonth, endMonth, item):
     img_base64 = base64.b64encode(img_buffer.read()).decode()
 
     return img_base64, value1, value2
+
 
 def graphDefault():
     matplotlib.rcParams['font.family'] = 'Malgun Gothic'  # Windows
@@ -171,10 +172,6 @@ def graphDefault():
     return img_buffer
 
 
-
-
-
-
 def generate_months(start_month, end_month):
     start_date = datetime.strptime(start_month, '%Y-%m')
     end_date = datetime.strptime(end_month, '%Y-%m')
@@ -185,4 +182,3 @@ def generate_months(start_month, end_month):
         start_date += relativedelta(months=1)
 
     return months
-

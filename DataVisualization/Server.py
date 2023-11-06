@@ -33,8 +33,9 @@ def menu1():
     firstDate = str(param['firstDate'])
     secondDate = str(param['secondDate'])
     item = str(param['item'])
-    img_base64, value1, value2 = Chart1.graph(firstDate, secondDate, item)
 
+    img_base64, value1, value2 = Chart1.graph(firstDate, secondDate, item)
+    Chart1.plt.close()
     valList = [value1, value2]
     response_data = {
         "image": img_base64,
@@ -47,6 +48,8 @@ def menu1():
 def menu1Default():
     img_buffer = Chart1.graphDefault()
 
+    Chart1.plt.close()
+
     return Response(img_buffer, content_type='image/png')
 
 
@@ -54,15 +57,18 @@ def menu1Default():
 def menu2():
     param = request.get_json()
 
-    startMonth = str(param['startMonth'])
-    endMonth = str(param['endMonth'])
+    startMonth = str(param['startDate'])
+    endMonth = str(param['endDate'])
     item = str(param['item'])
+
     img_base64, value1, value2 = Chart2.graph(startMonth, endMonth, item)
 
-    valList = [value1, value2]
+    Chart2.plt.close()
+
     response_data = {
         "image": img_base64,
-        "valList": valList
+        "val1List": value1,
+        "val2List": value2
     }
     return jsonify(response_data)
 
@@ -70,7 +76,7 @@ def menu2():
 @app.route("/menu2/default", methods=['GET'])
 def menu2Default():
     img_buffer = Chart2.graphDefault()
-
+    Chart2.plt.close()
     return Response(img_buffer, content_type='image/png')
 
 

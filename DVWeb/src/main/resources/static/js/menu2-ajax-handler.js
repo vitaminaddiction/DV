@@ -3,6 +3,9 @@ $(document).ready(function(){
         let startDate = $("#startDate").val();
         let endDate = $("#endDate").val();
         let item = $("#item").val();
+        console.log(startDate);
+
+        console.log(generateMonths(startDate, endDate));
 
         $.ajax({
             url: 'http://192.168.0.32:5000/menu2',
@@ -16,16 +19,19 @@ $(document).ready(function(){
             success: function(response) {
                 let imgSrc = 'data:image/png;base64,' + response.image;
                 $("#image").attr("src", imgSrc);
-                myLineChart.data.datasets[0].data = response.valList;
+                myLineChart.data.datasets[0].data = response.val1List;
                 myLineChart.data.labels = generateMonths(startDate, endDate);
-                myLineChart.data.datasets[0].label = item;
+                myLineChart.data.datasets[1].data = response.val2List;
+                myLineChart.data.datasets[1].label = item;
                 myLineChart.update();
+                console.log(response.val2List);
+                console.log(response.val1List);
             }
         });
     }
 
 
-    $("#graphBtn").click( () => {
+    $("#graph").click( () => {
         fetchDataAndDrawChart();
     });
 

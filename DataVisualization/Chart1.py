@@ -5,6 +5,7 @@ import matplotlib.pyplot as plt
 import matplotlib
 from io import BytesIO
 
+matplotlib.use('Agg')
 from flask import jsonify
 
 
@@ -13,7 +14,7 @@ def graph(firstDate, secondDate, item):
     matplotlib.rcParams['font.size'] = 15  # 글자 크기
     matplotlib.rcParams['axes.unicode_minus'] = False  # 한글 폰트 사용 시, 마이너스 글자가 깨지는 현상을 해결
 
-    data = pd.read_excel('../sml1.xlsx')
+    data = pd.read_excel('../sml2.xlsx')
     data.set_index('시점', inplace=True)
     # date1 = "2023-04"
     firstDate = float(firstDate.replace('-', '.'))
@@ -62,7 +63,7 @@ def graphDefault():
     matplotlib.rcParams['font.size'] = 15  # 글자 크기
     matplotlib.rcParams['axes.unicode_minus'] = False  # 한글 폰트 사용 시, 마이너스 글자가 깨지는 현상을 해결
 
-    data = pd.read_excel('../sml1.xlsx')
+    data = pd.read_excel('../sml2.xlsx')
     data.set_index('시점', inplace=True)
     # date1 = "2023-04"
     firstDate = float("2023.06")

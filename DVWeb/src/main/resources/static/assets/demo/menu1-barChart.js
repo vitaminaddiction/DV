@@ -30,8 +30,6 @@ var myBarChart = new Chart(ctx, {
       }],
       yAxes: [{
         ticks: {
-          min: 60,
-          max: 200,
           maxTicksLimit: 5
         },
         gridLines: {

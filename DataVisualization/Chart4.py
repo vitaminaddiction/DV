@@ -2,6 +2,7 @@ import matplotlib.pyplot as plt
 import pandas as pd  # pandas 라는 모듈을 pd 라는 별칭(alias)으로 사용
 import numpy as np  # numpy 라는 모듈을 np 라는 별명(alias)으로 사용
 import warnings
+
 warnings.simplefilter("ignore")
 
 plt.rcParams['font.family'] = 'Malgun Gothic'
