@@ -43,14 +43,13 @@ def graph(startMonth, endMonth, item):
     # 데이터프레임화
     data2 = data.loc[start_Month:end_Month,mylist]
     # data2 = data.loc[labels2,mylist]
-    print(data2)
 
     # 각각의 y값 배열화 - json
     standard_value = data[standard].to_list()
-    print(standard_value)
+    value1 = standard_value
     i_tem_value = data[i_tem].to_list()
-    print(i_tem_value)
-    
+    value2 = i_tem_value
+
     # 그래프상의 x좌표 간격 설정 위해서 배열 생성(1단위 크기)
     index_count = len(data2.index)
     print(data2.index)
@@ -62,12 +61,12 @@ def graph(startMonth, endMonth, item):
     plt.xlabel("연도",labelpad=15)
 
     # 그래프상에서 보여질 눈금배열과 해당 라벨의 배열
-    # x_count에 각 년도의 1월을 넣어주자...
+    # x_count에 각 년도의 1월을 넣어주자...(나중에)
 
     arr_x = []
     arr_x.append(2023.01)
-
-
+    # 하드코딩해서 연도.01월 들을
+    # 그래프 x축 라벨로 출력할 예정
 
 
     x_count = [1,
@@ -77,43 +76,21 @@ def graph(startMonth, endMonth, item):
                index_count*4/6,
                index_count*5/6,
                index_count*6/6]
+
+    # 임시로 지정
     x_labels = ["0년","1년","2년","3년","4년","5년","6년"]
 
     plt.xticks(x_count,x_labels)
     plt.ylabel("지수",rotation=0,labelpad=20)
-    plt.show()
-
-    # plt.plot(data2.index, )
-
-    # x = [1, 2]
-    # date = [startMonth, endMonth]
-    # value = [value1, value2]
-    #
-    # plt.figure(figsize=(15, 8))
-    # plt.bar(x, value, width=0.45, color='green')
-    #
-    # plt.annotate('', xytext=(1, value1), xy=(2, value2), xycoords='data',
-    #              arrowprops=dict(arrowstyle='->', color='red', lw=3))
-    #
-    # # 백분율(절댓값)
-    # per = str(round((value[1] - value[0]) * 100 / value[0], 1)) + "%"
-    # # 백분율 텍스트 위치 지정
-    # plt.text((x[0] + x[1]) / 2, ((value[0] + value[1]) / 2) * 1.1, per)
-    #
-    # y = [80, 150]
-    # plt.ylim(y)
-    #
-    # plt.xticks(x, date, rotation=45)
     # plt.show()
-    #
-    # img_buffer = BytesIO()
-    # plt.savefig(img_buffer, format="png")
-    # img_buffer.seek(0)
-    #
-    # img_base64 = base64.b64encode(img_buffer.read()).decode()
 
-    # return img_base64, value1, value2
-    return "test"
+    img_buffer = BytesIO()
+    plt.savefig(img_buffer, format="png")
+    img_buffer.seek(0)
+
+    img_base64 = base64.b64encode(img_buffer.read()).decode()
+
+    return img_base64, value1, value2
 
 def graphDefault():
     matplotlib.rcParams['font.family'] = 'Malgun Gothic'  # Windows
@@ -185,7 +162,7 @@ def graphDefault():
 
     plt.xticks(x_count, x_labels)
     plt.ylabel("지수", rotation=0, labelpad=20)
-    plt.show()
+    # plt.show()
 
     img_buffer = BytesIO()
     plt.savefig(img_buffer, format="png")
