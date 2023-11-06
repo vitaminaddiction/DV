@@ -1,5 +1,14 @@
+import base64
 import pandas as pd
 import matplotlib.pyplot as plt
+import numpy as np
+from io import BytesIO
+from datetime import datetime, timedelta
+from dateutil.relativedelta import relativedelta
+import matplotlib
+matplotlib.use('Agg')
+
+# 품목 : 쌀, 수입쇠고기, 생수, 빵, 휘발유, 경유, 도시가스, 전기료
 
 
 # 엑셀 파일 불러오기
