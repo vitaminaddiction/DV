@@ -8,7 +8,6 @@ import matplotlib
 
 matplotlib.use('Agg')
 
-
 def graph(selected_year, item):
     matplotlib.rcParams['font.family'] = 'Malgun Gothic'  # Windows
     matplotlib.rcParams['font.size'] = 15  # 글자 크기

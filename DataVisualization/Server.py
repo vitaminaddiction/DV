@@ -7,7 +7,7 @@ app = Flask(__name__)
 CORS(app)
 
 # 연도 선택 : 2020, 품목 : 사과
-Chart4.graph(selected_year=2019,item='빵')
+# Chart4.graph(selected_year=2019,item='빵')
 
 
 @app.route("/menu1", methods=['POST'])
