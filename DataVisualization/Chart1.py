@@ -21,7 +21,7 @@ def graph(firstDate, secondDate, item):
     # date2 = "2023-08"
     secondDate = float(secondDate.replace('-', '.'))
 
-
+    print(data)
     # item = "사과"
     value1 = float(data.loc[firstDate, item])
     value2 = float(data.loc[secondDate, item])
@@ -98,3 +98,6 @@ def graphDefault():
     img_buffer.seek(0)
 
     return img_buffer
+
+
+graph("2023-04", "2023-09", "쌀")

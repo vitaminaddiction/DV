@@ -1,5 +1,7 @@
 from flask import Flask, request, jsonify, Response
 from flask_cors import CORS
+
+import ARIMA
 import Chart1, Chart2
 
 
@@ -61,7 +63,7 @@ def menu2():
     endMonth = str(param['endDate'])
     item = str(param['item'])
 
-    img_base64, value1, value2 = Chart2.graph(startMonth, endMonth, item)
+    img_base64, value1, value2 = ARIMA.arima(startMonth, endMonth, item)
 
     Chart2.plt.close()
 
