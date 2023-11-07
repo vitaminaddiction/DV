@@ -17,7 +17,7 @@ def graph(selected_year, item):
     data.set_index('시점', inplace=True)
 
     # 연도 선택 : 2020, 품목 : 사과
-    selected_year = '2020'  # int인지 string인지 > string 으로 가정
+    selected_year = '2020'  # string 으로
     select_year = int(selected_year)
     # 봄 : 03, 04, 05 / 여름 : 06, 07, 08 / 가을 : 09, 10, 11 / 겨울 : 12, 01, 02
     item = '사과'
@@ -48,7 +48,7 @@ def graph(selected_year, item):
     plt.title(item+'의 계절별 평균물가지수',color='blue')
     plt.pie(value1, labels=season, autopct='%.1f%%', startangle=180, counterclock=False,
             colors=colors, explode=explode, wedgeprops=wedgeprops)
-    plt.show()
+    # plt.show()
 
     img_buffer = BytesIO()
     plt.savefig(img_buffer, format="png")

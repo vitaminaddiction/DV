@@ -94,7 +94,7 @@ def menu4():
     param = request.get_json()
 
     selected_year = str(param['selected_year'])
-    item = str(param['One'])
+    item = str(param['item'])
 
     img_base64, value1 = Chart4.graph(selected_year, item)
 
@@ -102,7 +102,7 @@ def menu4():
 
     response_data = {
         "image": img_base64,
-        "val1List": value1
+        "valList": value1
     }
     return jsonify(response_data)
 

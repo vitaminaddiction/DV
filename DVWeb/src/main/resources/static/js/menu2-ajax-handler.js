@@ -4,11 +4,10 @@ $(document).ready(function(){
         let endDate = $("#endDate").val();
         let item = $("#item").val();
         console.log(startDate);
-
         console.log(generateMonths(startDate, endDate));
 
         $.ajax({
-            url: 'http://192.168.0.32:5000/menu2',
+            url: 'http://192.168.0.208:5000/menu2',
             type: 'post',
             contentType: 'application/json',
             data: JSON.stringify({
