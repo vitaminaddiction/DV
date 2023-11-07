@@ -84,5 +84,3 @@ def arima(startDate, endDate, item):
 
     return img_base64, value1, value2
 
-
-arima("2013-04", "2013-09", "쌀")
