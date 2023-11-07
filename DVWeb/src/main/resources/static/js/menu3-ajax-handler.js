@@ -2,7 +2,8 @@ $(document).ready(function(){
     function fetchDataAndDrawChart() {
         let startDate = $("#startDate").val();
         let endDate = $("#endDate").val();
-        let item = $("#item").val();
+        console.log(startDate);
+        console.log(generateMonths(startDate, endDate));
 
         $.ajax({
             url: 'http://127.0.0.1:5000/menu3',
@@ -10,14 +11,17 @@ $(document).ready(function(){
             contentType: 'application/json',
             data: JSON.stringify({
                 startDate,
-                endDate,
-                item
+                endDate
             }),
             success: function(response) {
                 let imgSrc = 'data:image/png;base64,' + response.image;
                 $("#image").attr("src", imgSrc);
                 myLineChart.data.labels = generateMonths(startDate, endDate);
-                myLineChart.data.datasets[0].data = response.valList;
+                myLineChart.data.datasets[0].data = response.val1List;
+                myLineChart.data.datasets[1].data = response.val2List;
+                myLineChart.data.datasets[2].data = response.val3List;
+                myLineChart.data.datasets[3].data = response.val4List;
+                myLineChart.data.datasets[4].data = response.val5List;
 
                 myLineChart.update();
             }
