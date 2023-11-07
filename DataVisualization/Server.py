@@ -57,26 +57,28 @@ def menu2():
     return jsonify(response_data)
 
 
-# @app.route("/menu3", methods=['POST'])
-# def menu3():
-#     param = request.get_json()
-#
-#     startMonth = str(param['startDate'])
-#     endMonth = str(param['endDate'])
-#     item = str(param['item'])
-#
-#     img_base64, value1, value2 = Chart3.graph(startMonth, endMonth, item)
-#
-#     Chart3.plt.close()
-#
-#     response_data = {
-#         "image": img_base64,
-#         "val1List": value1,
-#         "val2List": value2
-#     }
-#     return jsonify(response_data)
-#
-#
+@app.route("/menu3", methods=['POST'])
+def menu3():
+    param = request.get_json()
+
+    startMonth = str(param['startDate'])
+    endMonth = str(param['endDate'])
+
+    img_base64, value1, value2, value3, value4, value5 = Chart3.graph(startMonth, endMonth)
+
+    Chart3.plt.close()
+
+    response_data = {
+        "image": img_base64,
+        "val1List": value1,
+        "val2List": value2,
+        "val3List": value3,
+        "val4List": value4,
+        "val5List": value5
+    }
+    return jsonify(response_data)
+
+
 # @app.route("/menu3/default", methods=['GET'])
 # def menu3Default():
 #     img_buffer = Chart3.graphDefault()
