@@ -1,11 +1,8 @@
 import base64
-
 import pandas as pd
-
 import matplotlib.pyplot as plt
 import numpy as np
 from io import BytesIO
-
 from datetime import datetime, timedelta
 from dateutil.relativedelta import relativedelta
 import matplotlib
