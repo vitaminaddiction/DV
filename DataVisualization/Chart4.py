@@ -8,6 +8,7 @@ import matplotlib
 
 matplotlib.use('Agg')
 
+
 def graph(selected_year, item):
     matplotlib.rcParams['font.family'] = 'Malgun Gothic'  # Windows
     matplotlib.rcParams['font.size'] = 15  # 글자 크기
@@ -16,11 +17,8 @@ def graph(selected_year, item):
     data = pd.read_excel('../sml2.xlsx')
     data.set_index('시점', inplace=True)
 
-    # 연도 선택 : 2020, 품목 : 사과
-    selected_year = '2020'  # string 으로
     select_year = int(selected_year)
     # 봄 : 03, 04, 05 / 여름 : 06, 07, 08 / 가을 : 09, 10, 11 / 겨울 : 12, 01, 02
-    item = '사과'
     # 2020년을 선택했다 : 2020 < selected_year < 2021
     data2 = data.loc[(data.index > select_year) & (data.index < select_year + 1), item]
 
@@ -45,7 +43,8 @@ def graph(selected_year, item):
     wedgeprops = {'width': 0.8, 'edgecolor': 'w', 'linewidth': 4}
 
     # 제목 : 컬러 임시지정, 삭제하셔도 됩니다...
-    plt.title(item+'의 계절별 평균물가지수',color='blue')
+    plt.title(item + '의 계절별 평균물가지수', color='blue')
+    plt.figure(figsize=(15, 8))
     plt.pie(value1, labels=season, autopct='%.1f%%', startangle=180, counterclock=False,
             colors=colors, explode=explode, wedgeprops=wedgeprops)
     # plt.show()
@@ -86,7 +85,7 @@ def graphDefault():
     winter = (data2[select_year + 0.12] + data2[select_year + 0.01] + data2[select_year + 0.02]) / 3
     win = round(winter, 2)
     value1 = [spr, sum, aut, win]
-
+    print(value1)
     data3 = pd.DataFrame({'계절': season, item: value1})
     data3.set_index('계절', inplace=True)
 
@@ -97,6 +96,7 @@ def graphDefault():
 
     # 제목 : 컬러 임시지정, 삭제하셔도 됩니다...
     plt.title(item + '의 계절별 평균물가지수', color='blue')
+    plt.figure(figsize=(15, 8))
     plt.pie(value1, labels=season, autopct='%.1f%%', startangle=180, counterclock=False,
             colors=colors, explode=explode, wedgeprops=wedgeprops)
     # plt.show()
@@ -105,9 +105,7 @@ def graphDefault():
     plt.savefig(img_buffer, format="png")
     img_buffer.seek(0)
 
-    img_base64 = base64.b64encode(img_buffer.read()).decode()
-
-    return img_base64, value1
+    return img_buffer
 
 
 def generate_months(start_month, end_month):
@@ -120,7 +118,6 @@ def generate_months(start_month, end_month):
         start_date += relativedelta(months=1)
 
     return months
-
 
 # 테스트용
 # graph(selected_year=2015, item='오이')

@@ -7,7 +7,7 @@ $(document).ready(function(){
         console.log(item);
 
         $.ajax({
-            url: 'http://192.168.0.208:5000/menu4',
+            url: 'http://127.0.0.1:5000/menu4',
             type: 'post',
             contentType: 'application/json',
             data: JSON.stringify({
@@ -18,8 +18,6 @@ $(document).ready(function(){
                 let imgSrc = 'data:image/png;base64,' + response.image;
                 $("#image").attr("src", imgSrc);
                 myPieChart.data.datasets[0].data = response.valList;
-                myPieChart.data.labels = [selected_year];
-                myPieChart.data.datasets[0].label = item;
                 myPieChart.update();
             }
         });

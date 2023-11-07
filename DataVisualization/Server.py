@@ -1,5 +1,7 @@
 from flask import Flask, request, jsonify, Response
 from flask_cors import CORS
+
+import ARIMA
 import Chart1, Chart2, Chart3, Chart4
 
 
@@ -31,9 +33,7 @@ def menu1():
 @app.route("/menu1/default", methods=['GET'])
 def menu1Default():
     img_buffer = Chart1.graphDefault()
-
     Chart1.plt.close()
-
     return Response(img_buffer, content_type='image/png')
 
 
@@ -45,7 +45,7 @@ def menu2():
     endMonth = str(param['endDate'])
     item = str(param['item'])
 
-    img_base64, value1, value2 = Chart2.graph(startMonth, endMonth, item)
+    img_base64, value1, value2 = ARIMA.arima(startMonth, endMonth, item)
 
     Chart2.plt.close()
 
@@ -56,12 +56,6 @@ def menu2():
     }
     return jsonify(response_data)
 
-
-@app.route("/menu2/default", methods=['GET'])
-def menu2Default():
-    img_buffer = Chart2.graphDefault()
-    Chart2.plt.close()
-    return Response(img_buffer, content_type='image/png')
 
 # @app.route("/menu3", methods=['POST'])
 # def menu3():
@@ -95,6 +89,7 @@ def menu4():
 
     selected_year = str(param['selected_year'])
     item = str(param['item'])
+    print(item)
 
     img_base64, value1 = Chart4.graph(selected_year, item)
 

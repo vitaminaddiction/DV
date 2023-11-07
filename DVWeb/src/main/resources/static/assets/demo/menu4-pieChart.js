@@ -9,7 +9,7 @@ var myPieChart = new Chart(ctx, {
   data: {
     labels: ["봄", "여름", "가을", "겨울"],
     datasets: [{
-      data: [12.21, 15.58, 11.25, 8.32],
+      data: [85.29, 103.49, 119.27, 91.95],
       backgroundColor: ['#007bff', '#dc3545', '#ffc107', '#28a745'],
     }],
   },
