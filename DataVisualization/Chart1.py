@@ -43,7 +43,7 @@ def graph(firstDate, secondDate, item):
     y = [80, 150]
     plt.ylim(y)
 
-    plt.xticks(x, date, rotation=45)
+    plt.xticks(x, date, rotation=0)
     # plt.show()
 
     img_buffer = BytesIO()
@@ -89,7 +89,7 @@ def graphDefault():
     y = [80, 150]
     plt.ylim(y)
 
-    plt.xticks(x, date, rotation=45)
+    plt.xticks(x, date, rotation=0)
     # plt.show()
 
     img_buffer = BytesIO()
