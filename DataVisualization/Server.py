@@ -8,9 +8,6 @@ import Chart1, Chart2, Chart3, Chart4
 app = Flask(__name__)
 CORS(app)
 
-# 연도 선택 : 2020, 품목 : 사과
-# Chart4.graph(selected_year=2019,item='빵')
-
 
 @app.route("/menu1", methods=['POST'])
 def menu1():
@@ -78,12 +75,6 @@ def menu3():
     }
     return jsonify(response_data)
 
-
-# @app.route("/menu3/default", methods=['GET'])
-# def menu3Default():
-#     img_buffer = Chart3.graphDefault()
-#     Chart3.plt.close()
-#     return Response(img_buffer, content_type='image/png')
 
 @app.route("/menu4", methods=['POST'])
 def menu4():

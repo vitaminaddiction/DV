@@ -36,13 +36,6 @@ def graph(startMonth, endMonth):
     value4 = data2['당근'].tolist()
     value5 = data2['생활물가지수'].tolist()
 
-    print(value1)
-    print(value2)
-    print(value3)
-    print(value4)
-    print(value5)
-
-
     # 그래프상의 x좌표 간격 설정 위해서 배열 생성(1단위 크기)
     index_count = len(data2.index)
     index_array = np.arange(1, index_count + 1)

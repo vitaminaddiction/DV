@@ -85,7 +85,6 @@ def graphDefault():
     winter = (data2[select_year + 0.12] + data2[select_year + 0.01] + data2[select_year + 0.02]) / 3
     win = round(winter, 2)
     value1 = [spr, sum, aut, win]
-    print(value1)
     data3 = pd.DataFrame({'계절': season, item: value1})
     data3.set_index('계절', inplace=True)
 
