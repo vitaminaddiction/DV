@@ -4,7 +4,6 @@ from flask_cors import CORS
 import ARIMA
 import Chart1, Chart2, Chart3, Chart4
 
-
 app = Flask(__name__)
 CORS(app)
 
@@ -82,7 +81,6 @@ def menu4():
 
     selected_year = str(param['selected_year'])
     item = str(param['item'])
-    print(item)
 
     img_base64, value1 = Chart4.graph(selected_year, item)
 
@@ -103,6 +101,3 @@ def menu4Default():
 
 
 app.run(debug=True, host="0.0.0.0")
-
-
-
