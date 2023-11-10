@@ -7,7 +7,7 @@ $(document).ready(function(){
         console.log(item);
 
         $.ajax({
-            url: 'http://127.0.0.1:5000/menu4',
+            url: 'http://192.168.0.208:5000/menu4',
             type: 'post',
             contentType: 'application/json',
             data: JSON.stringify({
