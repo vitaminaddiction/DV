@@ -7,7 +7,7 @@ $(document).ready(function(){
         console.log(generateMonths(startDate, endDate));
 
         $.ajax({
-            url: 'http://13.209.19.170:5000/menu2',
+            url: 'http://54.180.125.238:5000/menu2',
             type: 'post',
             contentType: 'application/json',
             data: JSON.stringify({
