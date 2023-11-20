@@ -5,7 +5,7 @@ $(document).ready(function(){
         let item = $("#item").val();
 
         $.ajax({
-            url: 'http://192.168.0.208:5000/menu1',
+            url: 'http://13.209.19.170:5000/menu1',
             type: 'post',
             contentType: 'application/json',
             data: JSON.stringify({

@@ -6,7 +6,7 @@ $(document).ready(function(){
         console.log(generateMonths(startDate, endDate));
 
         $.ajax({
-            url: 'http://192.168.0.208:5000/menu3',
+            url: 'http://13.209.19.170:5000/menu3',
             type: 'post',
             contentType: 'application/json',
             data: JSON.stringify({
